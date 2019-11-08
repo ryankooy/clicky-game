@@ -44,14 +44,16 @@ class App extends Component {
         <Navbar />
         <Header />
         <ImgGrid>
-          {this.state.tiles.map(tile => (
-            <Tile
-              id={tile.id}
-              key={tile.id}
-              onClick={tile.handleShuffle}
-              image={tile.image}
-            />
-          ))}
+          <div className="container img-grid">
+            {this.state.tiles.map(tile => (
+              <Tile
+                id={tile.id}
+                key={tile.id}
+                onClick={tile.handleShuffle}
+                image={tile.image}
+              />
+            ))}
+          </div>
         </ImgGrid>
         <Footer />
       </div>
