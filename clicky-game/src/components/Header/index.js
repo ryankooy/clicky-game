@@ -1,9 +1,10 @@
 import React from 'react';
+import "./style.css";
 
 function Header() {
   return (
     <div>
-      Hi, Header.
+      <h1>Click It Or Quit It!</h1>
     </div>
   );
 }

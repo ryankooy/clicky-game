@@ -1,14 +1,8 @@
 import React from 'react';
+import "./style.css";
 
-class ImgGrid extends React.Component {
-
-  render() {
-    return (
-      <div>
-        Hi, ImgGrid.
-      </div>
-    );
-  }
+function ImgGrid(props) {
+  return <div className="img-grid">{props.children}</div>;
 }
 
 export default ImgGrid;

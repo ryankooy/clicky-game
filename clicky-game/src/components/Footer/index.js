@@ -1,9 +1,10 @@
 import React from 'react';
+import "./style.css";
 
 function Footer() {
   return (
     <div>
-      Hi, Footer.
+      <p>created by Ryan Kooy</p>
     </div>
   );
 }
