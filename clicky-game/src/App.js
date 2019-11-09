@@ -9,47 +9,43 @@ import tiles from './tiles.json';
 
 class App extends Component {
   state = {
-    tiles
+    tiles,
+    score: 0,
+    topScore: 0
   };
 
-  // handleShuffle = e => {
-  //   e.preventDefault();
-  //   const order = this.state.tiles.map(tile => (
-  //     Math.floor(Math.random() * 12)
-  //   ))
-  // };
+  startOver = () => {
+    if (this.state.score > this.state.topScore) {
+      this.setState({ topScore: this.state.score }, () => {
+        console.log(this.state.topScore);
+      });
+    }
+    this.state.tiles.forEach(tile => {
+      tile.count = 0;
+    });
+    this.setState({ score: 0 });
+    return true;
+  }
 
-  // state = {
-  //   username: "",
-  //   password: ""
-  // }
-
-  // handleInputChange = event => {
-  //   const { name, value } = event.target;
-
-  //   this.setState({
-  //     [name]: value
-  //   });
-  // }
-
-  // handleSubmit = event => {
-  //   const { username, password } = this.state;
-  //   event.preventDefault();
-  //   alert(`username: ${username}, password: ${password}`);
-  // }
+  handleIncrement = () => {
+    tiles.count = tiles.count + 1;
+    this.setState({ score : this.state.score + 1 });
+    this.state.tiles.sort(() => Math.random() - 0.5);
+    return true; 
+  }
 
   render() {
     return (
       <div>
         <Navbar />
-        <Header />
+        <Header score={this.state.score} topScore={this.state.topScore} />
         <ImgGrid>
           <div className="container img-grid">
             {this.state.tiles.map(tile => (
               <Tile
                 id={tile.id}
                 key={tile.id}
-                onClick={tile.handleShuffle}
+                onClick={tile.handleIncrement}
                 image={tile.image}
               />
             ))}

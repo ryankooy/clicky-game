@@ -1,11 +1,13 @@
 import React from 'react';
 import "./style.css";
 
-function Navbar() {
+function Navbar(props) {
   return (
-    <div>
-      Hi, Navbar.
-    </div>
+    <nav className="navbar navbar-dark bg-dark">
+      <span className="navbar-text">
+        <p>Score: {props.score} | High Score: {props.topScore} </p>
+      </span>
+    </nav>
   );
 }
 

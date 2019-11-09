@@ -3,7 +3,7 @@ import "./style.css";
 
 function ImgGrid(props) {
   return (
-    <div className="img-grid">
+    <div>
       {props.children}
     </div>
   );
