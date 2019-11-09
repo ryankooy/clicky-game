@@ -3,7 +3,7 @@ import "./style.css";
 
 function Tile(props) {
   return (
-    <div onClick={() => props.handleIncrement(props.id)}>
+    <div onClick={() => props.handleClicks(props.id)}>
       <img
       className="pic"
       alt={props.name}

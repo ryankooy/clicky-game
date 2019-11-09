@@ -1,10 +1,8 @@
 .nav {
-  color: white;
+  color: lightgrey;
+  font-size: 20px;
+  font-family: 'Playfair Display', serif;
   height: 50px;
-  background-color: indigo;
-  text-align: right;
-}
-
-p {
-  margin-right: 20px;
+  background-color: black;
+  text-align: center;
 }

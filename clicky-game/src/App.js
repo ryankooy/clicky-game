@@ -10,6 +10,7 @@ import tiles from './tiles.json';
 class App extends Component {
   state = {
     tiles,
+    count: 0,
     score: 0,
     topScore: 0
   };
@@ -20,14 +21,16 @@ class App extends Component {
         console.log(this.state.topScore);
       });
     }
+
     this.state.tiles.forEach(tile => {
       tile.count = 0;
     });
+
     this.setState({ score: 0 });
     return true;
   }
 
-  handleIncrement = () => {
+  handleClicks = () => {
     tiles.count = tiles.count + 1;
     this.setState({ score : this.state.score + 1 });
     this.state.tiles.sort(() => Math.random() - 0.5);
@@ -37,8 +40,8 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Navbar />
         <Header score={this.state.score} topScore={this.state.topScore} />
+        <Navbar />
         <ImgGrid>
           <div className="container img-grid">
             {this.state.tiles.map(tile => (

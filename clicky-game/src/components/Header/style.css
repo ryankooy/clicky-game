@@ -1,12 +1,7 @@
-.header {
-  background-color: black;
-  height: 130px;
-  text-align: center;
-  border-bottom: 2px solid white;
-}
-
 .title {
-  color: white;
-  font-size: 80px;
+  color: darkred;
+  font-size: 90px;
   font-family: 'Playfair Display', serif;
+  text-align: center;
+  margin: 0px;
 }

@@ -3,7 +3,7 @@ import "./style.css";
 
 function Header() {
   return (
-    <div className="header">
+    <div>
       <p className="title">CLICKY PEAKS</p>
     </div>
   );

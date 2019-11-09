@@ -3,7 +3,7 @@ import "./style.css";
 
 function Footer() {
   return (
-    <div>
+    <div className="footer">
       <p>created by Ryan Kooy</p>
     </div>
   );

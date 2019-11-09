@@ -3,9 +3,9 @@ import "./style.css";
 
 function Navbar(props) {
   return (
-    <span className="nav">
+    <nav className="nav navbar-dark">
       <p>Score: {props.score} | High Score: {props.topScore} </p>
-    </span>
+    </nav>
   );
 }
 
