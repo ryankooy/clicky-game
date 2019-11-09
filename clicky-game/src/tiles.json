@@ -2,61 +2,73 @@
   {
     "id": 1,
     "name": "Cooper",
-    "image": "https://m.media-amazon.com/images/M/MV5BMzhmZjA5NTctNzMzZC00NTJhLTkxNTMtYjEyMTJkYTBjMjE2L2ltYWdlXkEyXkFqcGdeQXVyMjYyODQ0OTQ@._V1_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMzhmZjA5NTctNzMzZC00NTJhLTkxNTMtYjEyMTJkYTBjMjE2L2ltYWdlXkEyXkFqcGdeQXVyMjYyODQ0OTQ@._V1_.jpg",
+    "clicked": false
   },
   {
     "id": 2,
     "name": "Audrey",
-    "image": "https://m.media-amazon.com/images/M/MV5BNDIxMzQwNzg5N15BMl5BanBnXkFtZTgwNDgxMjg0MDE@._V1_SY1000_CR0,0,1003,1000_AL_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BNDIxMzQwNzg5N15BMl5BanBnXkFtZTgwNDgxMjg0MDE@._V1_SY1000_CR0,0,1003,1000_AL_.jpg",
+    "clicked": false
   },
   {
     "id": 3,
     "name": "Leland",
-    "image": "https://m.media-amazon.com/images/M/MV5BNzI2YjYyMzUtOGI4MS00ODVkLTk0NjQtOGJhMmU1YmNhMmUzXkEyXkFqcGdeQXVyMDIwNTUxMg@@._V1_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BNzI2YjYyMzUtOGI4MS00ODVkLTk0NjQtOGJhMmU1YmNhMmUzXkEyXkFqcGdeQXVyMDIwNTUxMg@@._V1_.jpg",
+    "clicked": false
   },
   {
     "id": 4,
     "name": "BOB",
-    "image": "https://m.media-amazon.com/images/M/MV5BMTU1NzQwNjIwM15BMl5BanBnXkFtZTgwOTU2NDMwMjE@._V1_SY1000_CR0,0,1343,1000_AL_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTU1NzQwNjIwM15BMl5BanBnXkFtZTgwOTU2NDMwMjE@._V1_SY1000_CR0,0,1343,1000_AL_.jpg",
+    "clicked": false
   },
   {
     "id": 5,
     "name": "Log Lady",
-    "image": "https://i.guim.co.uk/img/media/7ae5e6196bf2f3e76a3612ad84770982854666cf/0_260_3113_2372/master/3113.jpg?width=1225&quality=85&auto=format&fit=max&s=6a39d2c60e016fa48f386580eea58c0f"
+    "image": "https://i.guim.co.uk/img/media/7ae5e6196bf2f3e76a3612ad84770982854666cf/0_260_3113_2372/master/3113.jpg?width=1225&quality=85&auto=format&fit=max&s=6a39d2c60e016fa48f386580eea58c0f",
+    "clicked": false
   },
   {
     "id": 6,
     "name": "Lucy",
-    "image": "https://m.media-amazon.com/images/M/MV5BMTczMjk3MjAyNl5BMl5BanBnXkFtZTgwNjAyMjg0MDE@._V1_SY1000_CR0,0,1003,1000_AL_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMTczMjk3MjAyNl5BMl5BanBnXkFtZTgwNjAyMjg0MDE@._V1_SY1000_CR0,0,1003,1000_AL_.jpg",
+    "clicked": false
   },
   {
     "id": 7,
     "name": "Shelly",
-    "image": "https://m.media-amazon.com/images/M/MV5BODk3NDk1NDk1Nl5BMl5BanBnXkFtZTgwMzk1Mjg0MDE@._V1_SY1000_CR0,0,686,1000_AL_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BODk3NDk1NDk1Nl5BMl5BanBnXkFtZTgwMzk1Mjg0MDE@._V1_SY1000_CR0,0,686,1000_AL_.jpg",
+    "clicked": false
   },
   {
     "id": 8,
     "name": "Pete",
-    "image": "https://m.media-amazon.com/images/M/MV5BMjAxNDUyMzUyN15BMl5BanBnXkFtZTgwOTIyNDk0MDE@._V1_SY1000_CR0,0,686,1000_AL_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BMjAxNDUyMzUyN15BMl5BanBnXkFtZTgwOTIyNDk0MDE@._V1_SY1000_CR0,0,686,1000_AL_.jpg",
+    "clicked": false
   },
   {
     "id": 9,
     "name": "Nadine",
-    "image": "https://m.media-amazon.com/images/M/MV5BNTE1Mzg3MjIyMF5BMl5BanBnXkFtZTgwMTg1Mjg0MDE@._V1_SY1000_CR0,0,1009,1000_AL_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BNTE1Mzg3MjIyMF5BMl5BanBnXkFtZTgwMTg1Mjg0MDE@._V1_SY1000_CR0,0,1009,1000_AL_.jpg",
+    "clicked": false
   },
   {
     "id": 10,
     "name": "The Giant",
-    "image": "https://m.media-amazon.com/images/M/MV5BOWM3ZjJiODgtYmZmOC00YWQ3LWJhYzgtMDVkODlmNTY5MDE0XkEyXkFqcGdeQXVyMjM4MTE0NzQ@._V1_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BOWM3ZjJiODgtYmZmOC00YWQ3LWJhYzgtMDVkODlmNTY5MDE0XkEyXkFqcGdeQXVyMjM4MTE0NzQ@._V1_.jpg",
+    "clicked": false
   },
   {
     "id": 11,
     "name": "Andy",
-    "image": "https://m.media-amazon.com/images/M/MV5BOTMwNjI3OTYtZDYxMC00N2NjLTkzMjItOGVkNjU0MzM2ODg0L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjM4MTE0NzQ@._V1_.jpg"
+    "image": "https://m.media-amazon.com/images/M/MV5BOTMwNjI3OTYtZDYxMC00N2NjLTkzMjItOGVkNjU0MzM2ODg0L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjM4MTE0NzQ@._V1_.jpg",
+    "clicked": false
   },
   {
     "id": 12,
     "name": "Dr. Jacoby",
-    "image": "https://3.bp.blogspot.com/-EXQwGMJ3u3U/WOh4DdUVqxI/AAAAAAAAlps/OpogTPbLp8kCZfT-vhf1LDnNKiNHicoOQCLcB/s1600/Picture%2B13.png"
+    "image": "https://3.bp.blogspot.com/-EXQwGMJ3u3U/WOh4DdUVqxI/AAAAAAAAlps/OpogTPbLp8kCZfT-vhf1LDnNKiNHicoOQCLcB/s1600/Picture%2B13.png",
+    "clicked": false
   }
 ]

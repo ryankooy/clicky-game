@@ -10,46 +10,73 @@ import tiles from './tiles.json';
 class App extends Component {
   state = {
     tiles,
-    count: 0,
     score: 0,
-    topScore: 0
+    topScore: 0,
+    clicked: []
   };
 
-  startOver = () => {
+  handleIncrement = () => {
+    this.setState({ score: this.state.score + 1 })
+    
     if (this.state.score > this.state.topScore) {
-      this.setState({ topScore: this.state.score }, () => {
-        console.log(this.state.topScore);
-      });
+      this.setState({ topScore: this.state.score });
     }
-
-    this.state.tiles.forEach(tile => {
-      tile.count = 0;
-    });
-
-    this.setState({ score: 0 });
-    return true;
   }
 
-  handleClicks = () => {
-    tiles.count = tiles.count + 1;
-    this.setState({ score : this.state.score + 1 });
-    this.state.tiles.sort(() => Math.random() - 0.5);
-    return true; 
+  handleShuffle = data => {
+    let i = data.length - 1;
+
+    while (i > 0) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = data[i];
+      data[i] = data[j];
+      data[j] = temp;
+      i--;
+    }
+
+    return data;
+  }
+
+  handleClick = id => {
+    if (!this.state.clicked) {
+      this.handleIncrement();
+      this.handleShuffle(id);
+      this.setState({ clicked: this.state.clicked.concat(id) });
+    } else {
+      this.startOver();
+    }
+  }
+
+  startOver = () => {
+    this.setState({
+      score: 0,
+      topScore: this.state.topScore,
+      clicked: []
+    });
+
+    const resetData = this.state.tiles.map(item => ({ ...item, clicked: false }));
+
+    return this.handleShuffle(resetData);
   }
 
   render() {
     return (
       <div className="app">
-        <Header score={this.state.score} topScore={this.state.topScore} />
-        <Navbar />
+        <Header />
+        <Navbar>
+          Score: {this.state.score}  |  High Score: {this.state.topScore}
+        </Navbar>
         <ImgGrid>
           <div className="container img-grid">
             {this.state.tiles.map(tile => (
               <Tile
                 id={tile.id}
                 key={tile.id}
-                onClick={tile.handleIncrement}
                 image={tile.image}
+                handleClick={this.handleClick}
+                handleIncrement={this.handleIncrement}
+                handleShuffle={this.handleShuffle}
+                startOver={this.startOver}
               />
             ))}
           </div>

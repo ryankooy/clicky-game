@@ -1,10 +1,11 @@
 import React from 'react';
 import "./style.css";
+import "../../App.js";
 
 function Navbar(props) {
   return (
     <nav className="nav navbar-dark">
-      <p>Score: {props.score} | High Score: {props.topScore} </p>
+      {props.children}
     </nav>
   );
 }
