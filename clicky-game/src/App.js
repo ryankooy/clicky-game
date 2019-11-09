@@ -36,7 +36,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <Navbar />
         <Header score={this.state.score} topScore={this.state.topScore} />
         <ImgGrid>
