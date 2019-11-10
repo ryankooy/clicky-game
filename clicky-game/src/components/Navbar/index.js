@@ -4,9 +4,9 @@ import "../../App.js";
 
 function Navbar(props) {
   return (
-    <nav className="nav navbar-dark">
+    <div className="nav">
       {props.children}
-    </nav>
+    </div>
   );
 }
 

@@ -1,8 +1,16 @@
 .nav {
-  color: lightgrey;
+  color: white;
   font-size: 20px;
+  line-height: 15px;
   font-family: 'Playfair Display', serif;
-  height: 50px;
+  height: 75px;
   background-color: black;
   text-align: center;
+  padding-bottom: 20px;
+}
+
+h1 {
+  color: gray;
+  line-height: 15px;
+  font-size: 30px;
 }

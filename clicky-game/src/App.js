@@ -12,16 +12,8 @@ class App extends Component {
     tiles,
     score: 0,
     topScore: 0,
-    clicked: []
+    umpire: 'Try not to click the same character twice!'
   };
-
-  handleIncrement = () => {
-    this.setState({ score: this.state.score + 1 })
-    
-    if (this.state.score > this.state.topScore) {
-      this.setState({ topScore: this.state.score });
-    }
-  }
 
   handleShuffle = data => {
     let i = data.length - 1;
@@ -32,28 +24,42 @@ class App extends Component {
       data[i] = data[j];
       data[j] = temp;
       i--;
+      console.log('i', i);
+      console.log('data', data);
     }
 
     return data;
   }
 
-  handleClick = id => {
-    if (!this.state.clicked) {
-      this.handleIncrement();
-      this.handleShuffle(id);
-      this.setState({ clicked: this.state.clicked.concat(id) });
-    } else {
+  handleClick = event => {
+    console.log('It clicked!');
+    let thisId = event.target.id;
+    let clicked = this.state.clicked;
+    let score = this.state.score + 1;
+    console.log(thisId);
+    console.log(clicked);
+    console.log(score);
+
+    if (clicked.includes(thisId)) {
+      this.setState({
+        score: 0,
+        clicked: false
+      });
       this.startOver();
+    } else {
+      this.setState({
+        score,
+        clicked
+      });
     }
+
+    let topScore = score > this.state.topScore ? score : this.state.topScore;
+    this.setState({ topScore });
+
+    this.handleShuffle(this.state.tiles);
   }
 
   startOver = () => {
-    this.setState({
-      score: 0,
-      topScore: this.state.topScore,
-      clicked: []
-    });
-
     const resetData = this.state.tiles.map(item => ({ ...item, clicked: false }));
 
     return this.handleShuffle(resetData);
@@ -64,19 +70,21 @@ class App extends Component {
       <div className="app">
         <Header />
         <Navbar>
-          Score: {this.state.score}  |  High Score: {this.state.topScore}
+          <h1>Score: <strong>{this.state.score}</strong>  |  High Score: <strong>{this.state.topScore}</strong></h1>
+          <p>{this.state.umpire}</p>
         </Navbar>
         <ImgGrid>
           <div className="container img-grid">
-            {this.state.tiles.map(tile => (
+            {this.state.tiles.map((tile, i) => (
               <Tile
                 id={tile.id}
-                key={tile.id}
+                key={i}
                 image={tile.image}
-                handleClick={this.handleClick}
-                handleIncrement={this.handleIncrement}
-                handleShuffle={this.handleShuffle}
-                startOver={this.startOver}
+                onClick={this.handleClick}
+                // handleClick={this.handleClick}
+                // handleIncrement={this.handleIncrement}
+                // handleShuffle={this.handleShuffle}
+                // startOver={this.startOver}
               />
             ))}
           </div>

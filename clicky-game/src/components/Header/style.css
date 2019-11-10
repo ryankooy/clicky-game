@@ -1,6 +1,8 @@
 .title {
+  padding-top: 25px;
   color: darkred;
-  font-size: 90px;
+  font-size: 100px;
+  line-height: 85px;
   font-family: 'Playfair Display', serif;
   text-align: center;
   margin: 0px;
