@@ -65,10 +65,10 @@ class App extends Component {
     this.setState({
       umpire: 'Go Fire Walk it off.',
       score: 0,
-      tiles: this.state.tiles
+      tiles: resetData
     });
     
-    return this.handleShuffle(resetData);
+    return this.handleShuffle();
   }
 
   render() {
@@ -85,6 +85,7 @@ class App extends Component {
               <Tile
                 id={tile.id}
                 key={i}
+                tiles={tile}
                 image={tile.image}
                 onClick={() => this.handleClick(tile.id)}
               />
