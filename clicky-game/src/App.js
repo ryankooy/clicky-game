@@ -68,7 +68,7 @@ class App extends Component {
       tiles: resetData
     });
 
-    this.handleShuffle();
+    return this.handleShuffle();
   }
 
   render() {
