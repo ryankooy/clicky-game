@@ -32,11 +32,11 @@ class App extends Component {
     });
   }
 
-  handleClick = id => {
+  handleClick = data => {
     console.log('It clicked!');
 
-    let thisId = this.state.tiles;
-    let wasClicked = thisId.find(tile => tile.id === id);
+    let thisId = this.state.tiles.id;
+    let wasClicked = thisId.find(tile => tile.id === data);
     let score = this.state.score + 1;
 
     console.log(thisId);
@@ -47,7 +47,7 @@ class App extends Component {
       this.setState({
         umpire: 'That is some damn good coffee!',
         score,
-        tiles: thisId
+        tiles: this.state.tiles
       });
     } else {
       this.startOver();
@@ -56,16 +56,16 @@ class App extends Component {
     let topScore = (score > this.state.topScore) ? score : this.state.topScore;
     this.setState({ topScore });
 
-    this.handleShuffle(thisId);
+    this.handleShuffle();
   }
 
   startOver = () => {
-    const resetData = this.state.tiles.map(item => ({ ...item, clicked: false }));
+    const resetData = this.state.tiles.clicked.map(item => ({ ...item, clicked: false }));
 
     this.setState({
       umpire: 'Go Fire Walk it off.',
       score: 0,
-      tiles: resetData
+      tiles: this.state.tiles
     });
     
     return this.handleShuffle();
