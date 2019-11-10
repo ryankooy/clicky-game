@@ -56,7 +56,7 @@ class App extends Component {
     let topScore = (score > this.state.topScore) ? score : this.state.topScore;
     this.setState({ topScore });
 
-    this.handleShuffle(this.state.tiles);
+    this.handleShuffle(thisId);
   }
 
   startOver = () => {
@@ -68,9 +68,7 @@ class App extends Component {
       tiles: this.state.tiles
     });
     
-    this.handleShuffle();
-    
-    return resetData;
+    return this.handleShuffle(resetData);
   }
 
   render() {
