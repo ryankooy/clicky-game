@@ -13,7 +13,7 @@ class App extends Component {
     score: 0,
     topScore: 0,
     umpire: 'Try not to click the same character twice!'
-  };
+  }; 
 
   handleShuffle = () => {
     let tile = this.state.tiles;
@@ -50,11 +50,6 @@ class App extends Component {
         tiles: thisId
       });
     } else {
-      this.setState({
-        umpire: 'Go Fire Walk it off.',
-        score: 0,
-        tiles: this.state.tiles
-      });
       this.startOver();
     }
 
@@ -67,6 +62,12 @@ class App extends Component {
   startOver = () => {
     const resetData = this.state.tiles.map(item => ({ ...item, clicked: false }));
 
+    this.setState({
+      umpire: 'Go Fire Walk it off.',
+      score: 0,
+      tiles: this.state.tiles
+    });
+
     return this.handleShuffle(resetData);
   }
 
@@ -76,7 +77,7 @@ class App extends Component {
         <Header />
         <Navbar>
           <h1>Score: <strong>{this.state.score}</strong>  |  High Score: <strong>{this.state.topScore}</strong></h1>
-          <p>{this.state.umpire}</p>
+          <p><i>{this.state.umpire}</i></p>
         </Navbar>
         <ImgGrid>
           <div className="container img-grid">
