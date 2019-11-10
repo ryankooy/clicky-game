@@ -9,7 +9,6 @@ function Tile(props) {
       alt={props.name}
       src={props.image}
       tile={props.tiles}
-      // onClick={() => props.onClick(props.tiles.id)}
       />
     </div>
   );
