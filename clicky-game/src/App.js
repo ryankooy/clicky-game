@@ -15,45 +15,50 @@ class App extends Component {
     umpire: 'Try not to click the same character twice!'
   };
 
-  handleShuffle = data => {
-    let i = data.length - 1;
+  handleShuffle = () => {
+    let tile = this.state.tiles;
+    let i = tile.length - 1;
 
     while (i > 0) {
       const j = Math.floor(Math.random() * (i + 1));
-      const temp = data[i];
-      data[i] = data[j];
-      data[j] = temp;
+      const temp = tile[i];
+      tile[i] = tile[j];
+      tile[j] = temp;
       i--;
-      console.log('i', i);
-      console.log('data', data);
     }
 
-    return data;
+    this.setState({
+      tiles: tile
+    });
   }
 
-  handleClick = event => {
+  handleClick = id => {
     console.log('It clicked!');
-    let thisId = event.target.id;
-    let clicked = this.state.clicked;
-    let score = this.state.score + 1;
-    console.log(thisId);
-    console.log(clicked);
-    console.log(score);
 
-    if (clicked.includes(thisId)) {
+    let thisId = this.state.tiles;
+    let wasClicked = thisId.find(tile => tile.id === id);
+    let score = this.state.score + 1;
+
+    console.log(thisId);
+
+    if (!wasClicked.clicked) {
+      wasClicked.clicked = true;
+
       this.setState({
-        score: 0,
-        clicked: false
+        umpire: 'That is some damn good coffee!',
+        score,
+        tiles: thisId
       });
-      this.startOver();
     } else {
       this.setState({
-        score,
-        clicked
+        umpire: 'Fire Walk it off . . .',
+        score: 0,
+        tiles: this.state.tiles
       });
+      this.startOver();
     }
 
-    let topScore = score > this.state.topScore ? score : this.state.topScore;
+    let topScore = (score > this.state.topScore) ? score : this.state.topScore;
     this.setState({ topScore });
 
     this.handleShuffle(this.state.tiles);
@@ -79,12 +84,9 @@ class App extends Component {
               <Tile
                 id={tile.id}
                 key={i}
+                tiles={tile}
                 image={tile.image}
-                onClick={this.handleClick}
-                // handleClick={this.handleClick}
-                // handleIncrement={this.handleIncrement}
-                // handleShuffle={this.handleShuffle}
-                // startOver={this.startOver}
+                onClick={() => this.handleClick(tile.id)}
               />
             ))}
           </div>
