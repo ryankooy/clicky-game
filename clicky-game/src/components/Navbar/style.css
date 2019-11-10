@@ -1,5 +1,5 @@
 .nav {
-  color: white;
+  color: crimson;
   font-size: 20px;
   line-height: 15px;
   font-family: 'Playfair Display', serif;
@@ -10,7 +10,7 @@
 }
 
 h1 {
-  color: gray;
+  color: lightgrey;
   line-height: 15px;
   font-size: 30px;
 }

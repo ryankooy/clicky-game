@@ -51,7 +51,7 @@ class App extends Component {
       });
     } else {
       this.setState({
-        umpire: 'Fire Walk it off . . .',
+        umpire: 'Go Fire Walk it off.',
         score: 0,
         tiles: this.state.tiles
       });

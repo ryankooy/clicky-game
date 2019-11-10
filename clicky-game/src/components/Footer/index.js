@@ -1,17 +1,18 @@
 import React from 'react';
 
 const stylings = {
-  color: 'dark red',
+  color: 'crimson',
   fontFamily: 'Playfair Display',
   textAlign: 'center',
   backgroundColor: 'black',
-  height: '50px'
+  zIndex: '2',
+  borderTop: '2px solid white'
 };
 
 function Footer() {
   return (
     <div style={stylings}>
-      <p>created by Ryan Kooy</p>
+      <p>&copy; Ryan Kooy</p>
     </div>
   );
 }
