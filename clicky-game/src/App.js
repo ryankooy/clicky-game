@@ -37,7 +37,7 @@ class App extends Component {
 
     let thisTile = this.state.tiles;
     let thisClicked = thisTile.find(tile => tile.id === id);
-    let allClicked = 
+//     let allClicked = 
     let score = this.state.score + 1;
 
     console.log(thisId);
