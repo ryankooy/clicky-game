@@ -12,6 +12,7 @@ class App extends Component {
     tiles,
     score: 0,
     topScore: 0,
+    clicked: [],
     umpire: 'Try not to click the same character twice!'
   }; 
 
@@ -36,45 +37,46 @@ class App extends Component {
     console.log('It clicked!');
 
     let thisTile = this.state.tiles;
+    let clickedArr = this.state.clicked;
     let thisClicked = thisTile.find(tile => tile.id === id);
-    let allClicked = thisTile.filter(tile => thisTile.clicked === true);
-    console.log(allClicked);
     let score = this.state.score + 1;
-
-    console.log(thisId);
 
     if (!thisClicked.clicked) {
       thisClicked.clicked = true;
-
+      clickedArr.push(thisTile.id);
       this.setState({
         umpire: 'That is some damn good coffee!',
         score,
         tiles: thisTile
       });
-    } else if (allClicked === 12) {
+    } else if (clickedArr.length === 12) {
       this.setState({
         umpire: "You won! A slice of Norma's cherry pie, on the house!",
-        score: 0,
-        topScore: this.state.topScore
       });
-    } else {
       this.startOver();
+    } else {
+      this.loseRound();
     }
 
-    let topScore = (score > this.state.topScore) ? score - 1 : this.state.topScore;
+    let topScore = (score > this.state.topScore) ? score : this.state.topScore;
+
     this.setState({ topScore });
 
     this.handleShuffle(thisTile);
   }
 
-  startOver = () => {
-    const resetData = this.state.tiles.map(item => ({ ...item, clicked: false }));
-
+  loseRound = () => {
     this.setState({
       umpire: 'Go Fire Walk it off.',
       score: 0,
-      tiles: resetData
+      tiles: this.state.tiles
     });
+  }
+
+  startOver = () => {
+    const resetData = this.state.tiles.map(item => ({ ...item, clicked: false }));
+
+    this.setState({ score: 0 });
 
     return this.handleShuffle(resetData);
   }
