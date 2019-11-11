@@ -15,20 +15,19 @@ class App extends Component {
     umpire: 'Try not to click the same character twice!'
   }; 
 
-  handleShuffle = () => {
-    let tile = this.state.tiles;
-    let i = tile.length - 1;
+  handleShuffle = data => {
+    let i = data.length - 1;
 
     while (i > 0) {
       const j = Math.floor(Math.random() * (i + 1));
-      const temp = tile[i];
-      tile[i] = tile[j];
-      tile[j] = temp;
+      const temp = data[i];
+      data[i] = data[j];
+      data[j] = temp;
       i--;
     }
 
     this.setState({
-      tiles: tile
+      tiles: this.state.tiles
     });
   }
 
@@ -56,7 +55,7 @@ class App extends Component {
     let topScore = (score > this.state.topScore) ? score : this.state.topScore;
     this.setState({ topScore });
 
-    this.handleShuffle();
+    this.handleShuffle(thisTile);
   }
 
   startOver = () => {
