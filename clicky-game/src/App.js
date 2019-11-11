@@ -37,7 +37,8 @@ class App extends Component {
 
     let thisTile = this.state.tiles;
     let thisClicked = thisTile.find(tile => tile.id === id);
-//     let allClicked = 
+    let allClicked = thisTile.filter(tile => thisTile.clicked === true);
+    console.log(allClicked);
     let score = this.state.score + 1;
 
     console.log(thisId);
@@ -50,11 +51,17 @@ class App extends Component {
         score,
         tiles: thisTile
       });
-    } else if ({
+    } else if (allClicked === 12) {
+      this.setState({
+        umpire: "You won! A slice of Norma's cherry pie, on the house!",
+        score: 0,
+        topScore: this.state.topScore
+      });
+    } else {
       this.startOver();
     }
 
-    let topScore = (score > this.state.topScore) ? score : this.state.topScore;
+    let topScore = (score > this.state.topScore) ? score - 1 : this.state.topScore;
     this.setState({ topScore });
 
     this.handleShuffle(thisTile);
