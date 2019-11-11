@@ -15,30 +15,31 @@ class App extends Component {
     umpire: 'Try not to click the same character twice!'
   }; 
 
-  handleShuffle = data => {
-    let i = data.length - 1;
+  handleShuffle = () => {
+    let tile = this.state.tiles;
+    let i = tile.length - 1;
 
     while (i > 0) {
       const j = Math.floor(Math.random() * (i + 1));
-      const temp = data[i];
-      data[i] = data[j];
-      data[j] = temp;
+      const temp = tile[i];
+      tile[i] = tile[j];
+      tile[j] = temp;
       i--;
     }
 
-//     this.setState({
-//       tiles: this.state.tiles
-//     });
+    this.setState({
+      tiles: tile
+    });
   }
 
   handleClick = id => {
     console.log('It clicked!');
 
-    let thisTile = this.state.tiles;
-    let wasClicked = thisTile.find(tile => tile.id === id);
+    let thisId = this.state.tiles;
+    let wasClicked = thisId.find(tile => tile.id === id);
     let score = this.state.score + 1;
 
-    console.log(thisTile);
+    console.log(thisId);
 
     if (!wasClicked.clicked) {
       wasClicked.clicked = true;
@@ -46,7 +47,7 @@ class App extends Component {
       this.setState({
         umpire: 'That is some damn good coffee!',
         score,
-        tiles: thisTile
+        tiles: thisId
       });
     } else {
       this.startOver();
@@ -55,11 +56,11 @@ class App extends Component {
     let topScore = (score > this.state.topScore) ? score : this.state.topScore;
     this.setState({ topScore });
 
-    this.handleShuffle();
+    this.handleShuffle(this.state.tiles);
   }
 
   startOver = () => {
-    const resetData = this.state.tiles.clicked.map(item => ({ ...item, clicked: false }));
+    const resetData = this.state.tiles.map(item => ({ ...item, clicked: false }));
 
     this.setState({
       umpire: 'Go Fire Walk it off.',
