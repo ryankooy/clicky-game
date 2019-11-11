@@ -65,12 +65,10 @@ class App extends Component {
     this.setState({
       umpire: 'Go Fire Walk it off.',
       score: 0,
-      tiles: this.state.tiles
+      tiles: resetData
     });
 
-    this.handleShuffle();
-    
-    return resetData;
+    return this.handleShuffle();
   }
 
   render() {
