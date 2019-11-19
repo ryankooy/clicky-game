@@ -44,21 +44,20 @@ class App extends Component {
 
     if (!beenClicked) {
       clickedArr.push(thisClicked);
+      
       this.setState({
         umpire: 'That is some damn good coffee!',
         score,
         tiles: thisTile
       });
-    } else if (clickedArr.length === 12) {
-      this.winRound();
+      
+      this.state.score === 11 ? this.winRound() : this.handleShuffle();
     } else {
       this.loseRound();
     }
 
     let topScore = (score > this.state.topScore) ? score : this.state.topScore;
-
     this.setState({ topScore });
-
     this.handleShuffle(thisTile);
   }
 
