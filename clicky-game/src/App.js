@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Transition } from 'semantic-ui-react';
 import './App.css';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -7,13 +8,18 @@ import Footer from './components/Footer';
 import Tile from './components/Tile';
 import tiles from './tiles.json';
 
+const transitions = [ 'flash', 'jiggle' ];
+
 class App extends Component {
   state = {
     tiles,
     score: 0,
     topScore: 0,
     clickedArr: [],
-    umpire: 'Try not to click the same character twice!'
+    umpire: 'Try not to click the same character twice!',
+    animation: transitions[0],
+    duration: 500,
+    visible: true
   }; 
 
   handleShuffle = () => {
@@ -34,8 +40,6 @@ class App extends Component {
   }
 
   handleClick = data => {
-    console.log('It clicked!');
-
     let thisTile = this.state.tiles;
     let clickedArr = this.state.clickedArr;
     let thisClicked = thisTile.find(tile => tile.id === data);
@@ -53,16 +57,20 @@ class App extends Component {
       
       this.state.score === 11 ? this.winRound() : this.handleShuffle();
     } else {
+      this.toggleVisibility();
+
       this.loseRound();
     }
 
     let topScore = (score > this.state.topScore) ? score : this.state.topScore;
     this.setState({ topScore });
+
     this.handleShuffle(thisTile);
   }
 
   winRound = () => {
     this.startOver();
+
     this.setState({
       umpire: "You won! A slice of Norma's cherry pie, on the house!",
       clickedArr: []
@@ -70,6 +78,7 @@ class App extends Component {
   }
 
   loseRound = () => {
+
     this.setState({
       umpire: 'Go Fire Walk it off.',
       score: 0,
@@ -86,7 +95,12 @@ class App extends Component {
     return this.handleShuffle(resetData);
   }
 
+  toggleVisibility = () =>
+    this.setState((prevState) => ({ visible: !prevState.visible }));
+
   render() {
+    const { animation, duration, visible } = this.state;
+
     return (
       <div className="app">
         <Header />
@@ -97,13 +111,19 @@ class App extends Component {
         <ImgGrid>
           <div className="container img-grid">
             {this.state.tiles.map((tile, i) => (
-              <Tile
-                id={tile.id}
-                key={i}
-                tiles={tile}
-                image={tile.image}
-                onClick={() => this.handleClick(tile.id)}
-              />
+              <Transition
+                animation={animation}
+                duration={duration}
+                visible={visible}
+              >
+                <Tile
+                  id={tile.id}
+                  key={i}
+                  tiles={tile}
+                  image={tile.image}
+                  onClick={() => this.handleClick(tile.id)}
+                />
+              </Transition>
             ))}
           </div>
         </ImgGrid>
